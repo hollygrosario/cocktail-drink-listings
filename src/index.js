@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App'
 import Navbar from './Navbar'
 import About from './About'
+import NotFound from './NotFound'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/About' element={<About />} />
+          <Route path='/*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
