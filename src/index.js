@@ -18,7 +18,7 @@ ReactDOM.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/About' element={<About />} />
-          <Route path='/*' element={<NotFound />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
