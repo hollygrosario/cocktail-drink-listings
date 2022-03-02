@@ -1,9 +1,9 @@
-import React, { createContext, useCallback, useEffect, useState } from 'react'
+import React, { createContext, useContext, useCallback, useEffect, useState } from 'react'
 import Axios from 'axios'
 
-const CocktailContext = createContext()
+const CocktailContext = createContext(null)
 
-const CocktailProvider = ({ children }) => {
+export const CocktailProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   console.log('isLoading:', isLoading)
   const [cocktails, setCocktails] = useState([])
@@ -32,16 +32,10 @@ useEffect(() => {
 
 
   return (
-    <CocktailContext.Provider
-      value={{
-        isLoading,
-        setIsLoading,
-        cocktails,
-      }}
-    >
+    <CocktailContext.Provider value={{ isLoading, setIsLoading, cocktails }}>
       {children}
     </CocktailContext.Provider>
   )
 }
 
-export { CocktailContext, CocktailProvider }
+export const useCocktails = () => useContext(CocktailContext)
