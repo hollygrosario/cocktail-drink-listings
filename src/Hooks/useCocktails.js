@@ -7,7 +7,7 @@ export const CocktailProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   console.log('isLoading:', isLoading)
   const [cocktails, setCocktails] = useState([])
-  console.log('cocktails:', cocktails)
+  // console.log('cocktails:', cocktails)
 
 // can combine the effect and getCocktails into one
   const getCocktails = useCallback(async () => {
