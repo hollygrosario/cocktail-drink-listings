@@ -1,5 +1,7 @@
 import React from 'react'
 import { useCocktails } from './Hooks/useCocktails'
+import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom'
 
 const List = () => {
   const { isLoading, cocktails } = useCocktails()
@@ -10,21 +12,38 @@ const List = () => {
 if (isLoading) {
   console.log('isLoading:', isLoading)
   return (
-    <div className='container pb-5'>
+    <div className='container pb-5'>z
       <h3 className='text-center'>Loading....</h3>
     </div>
   )
 }
 
+// will link to the details page by drink id
+// {'/details/$'${cocktail.idDrink}}
+
 if (cocktails) {
-  console.log('cocktails')
     return (
     <>
-      <div>
-          {cocktails.map(cocktail => (
-             <p key={cocktail.idDrink}>{cocktail.strDrink}</p>
-          ))}
-      </div>
+    <Table striped bordered hover size='sm'>
+      <thead>
+        <tr>
+          <th>Drink Name</th>
+          <th>Category</th>
+          <th>Glass</th>
+        </tr>
+      </thead>
+      <tbody>
+      {cocktails.map(cocktail => (
+         <tr key={cocktail.idDrink}>
+           <td>
+           <Link to={'/details'}>{cocktail.strDrink}</Link>
+           </td>
+           <td>{cocktail.strCategory}</td>
+            <td>{cocktail.strGlass}</td>
+         </tr>
+      ))}
+      </tbody>
+    </Table>
     </>
  )
 } else {

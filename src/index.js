@@ -5,6 +5,7 @@ import App from './App'
 import Navbar from './Components/Navbar'
 import NotFound from './Routes/NotFound'
 import { CocktailProvider } from './Hooks/useCocktails'
+import Details from './Details'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Navbar />
           <Routes>
             <Route path='/' element={<App />} />
+            <Route path='/Details' element={<Details />} />
             <Route path='/*' element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext, useRef } from 'react'
 import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import { useCocktails } from './Hooks/useCocktails'
 
 const Search = () => {
@@ -10,7 +11,24 @@ const Search = () => {
     <div className='py-5 container'>
       <div className='card'>
         <div className='card-body'>
-          <label id='search'>Search Your Favorite Cocktail</label>
+        <label>
+        <input type='radio'
+         name='a'
+         value='a'
+         checked={true}
+         onChange=''
+         />
+         Category
+         </label>
+         <label>
+         <input type='radio'
+          name='a'
+          value='a'
+          checked={true}
+          onChange=''
+          />
+          Glass
+          </label>
           <input
             id='search'
             type="text"
@@ -19,7 +37,7 @@ const Search = () => {
             onChange={() => {
               console.log('changing')
             }}
-            placeholder='Search Your Favorite Cocktail...'
+            placeholder='Search You Favorite Cocktail...'
           />
           <Button varient='primary' className='w-100 mt-2' onClick={() => alert('Alert!')}>Search</Button>
         </div>
